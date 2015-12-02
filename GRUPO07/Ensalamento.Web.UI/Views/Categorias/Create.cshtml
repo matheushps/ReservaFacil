@@ -1,0 +1,38 @@
+﻿@model Ensalamento.Dominio.Categoria
+
+@{
+    ViewBag.Title = "Nova Categoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro" class="intro-parallax2">
+    <div class="container">
+        <h2>Nova Categoria</h2>
+
+        <h3>Inserindo uma nova <strong> Categoria</strong></h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="reset" value="Cancelar" class="btn btn-default" />
+                        <input type="submit" value="Cadastrar" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

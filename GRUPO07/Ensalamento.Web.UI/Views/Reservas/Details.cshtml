@@ -1,0 +1,92 @@
+﻿@model Ensalamento.Dominio.Reserva
+
+@{
+    ViewBag.Title = "Detalhes da Reserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro" class="intro-parallax2">
+    <div class="container">
+
+        <h2>Detalhes:</h2>
+        <h4>Reserva número: @Html.DisplayFor(model => model.ReservaId)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Auditorios.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Auditorios.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Laboratorios.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Laboratorios.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pesssoas.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pesssoas.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salas.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salas.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataInicio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataFim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HoraInicio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoraInicio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HoraFim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoraFim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+
+        </dl>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="reset" value="Voltar" class="btn btn-default" />
+        </div>
+    </div>
+</section>

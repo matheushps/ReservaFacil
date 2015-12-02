@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Ensalamento.Dominio.Categoria>
+
+@{
+    ViewBag.Title = "Categorias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro2" class="intro-parallax2">
+    <div class="container">
+        <div class="panel panel-primary">
+            <table class="table table-bordered">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataCadastro)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataCadastro)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CategoriaId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.CategoriaId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CategoriaId })
+                            </td>
+                        </tr>
+                    }
+                </table>
+        </div>
+    </div>
+</section>
+

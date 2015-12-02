@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Ensalamento.Dominio.Reserva>
+
+@{
+    ViewBag.Title = "Reservas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro2" class="intro-parallax2">
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Auditorios.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Laboratorios.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pesssoas.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Salas.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataFim)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoraInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoraFim)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Auditorios.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Laboratorios.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pesssoas.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salas.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataInicio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataFim)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HoraInicio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HoraFim)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ReservaId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ReservaId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ReservaId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</section> 

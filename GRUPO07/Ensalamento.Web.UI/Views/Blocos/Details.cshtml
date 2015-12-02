@@ -1,0 +1,37 @@
+﻿@model Ensalamento.Dominio.Bloco
+
+@{
+    ViewBag.Title = "Detalhes do Bloco";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro" class="intro-parallax2">
+    <div class="container">
+
+        <h2>Detalhes:</h2>
+        <h4>@Html.DisplayFor(model => model.Nome)</h4>
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Localizacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Localizacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+
+        </dl>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="reset" value="Voltar" class="btn btn-default" />
+        </div>
+    </div>
+</section> 

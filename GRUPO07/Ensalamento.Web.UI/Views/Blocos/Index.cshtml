@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Ensalamento.Dominio.Bloco>
+
+@{
+    ViewBag.Title = "Blocos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro2" class="intro-parallax2">
+    <div class="container">
+        <div class="panel panel-primary">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Localizacao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Localizacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.BlocoId }) |
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.BlocoId }) |
+                            @Html.ActionLink("Apagar", "Delete", new { id = item.BlocoId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</section> 

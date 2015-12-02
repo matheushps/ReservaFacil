@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensalamento.Dominio", "Ensalamento.Dominio\Ensalamento.Dominio.csproj", "{E9A2E75F-D45B-4A66-9F32-51A586D6DA83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensalamento.ORM", "Ensalamento.ORM\Ensalamento.ORM.csproj", "{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensalamento.Web.UI", "Ensalamento.Web.UI\Ensalamento.Web.UI.csproj", "{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Negocio", "Negocio", "{92935848-99FB-4AD4-841D-F73F8EF363B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensalamento.BO", "Ensalamento.BO\Ensalamento.BO.csproj", "{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{CBD8E797-A672-4421-9A96-FFB789EBDEE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ORM", "ORM", "{0ECB674C-129E-4C02-933F-3EA08109465E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{666084C0-52CD-444B-A6EC-84D27D5377C5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://trainee2015grupo07.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Ensalamento.Dominio\\Ensalamento.Dominio.csproj
+		SccProjectTopLevelParentUniqueName1 = GRUPO07.sln
+		SccProjectName1 = Ensalamento.Dominio
+		SccLocalPath1 = Ensalamento.Dominio
+		SccProjectUniqueName2 = Ensalamento.ORM\\Ensalamento.ORM.csproj
+		SccProjectTopLevelParentUniqueName2 = GRUPO07.sln
+		SccProjectName2 = Ensalamento.ORM
+		SccLocalPath2 = Ensalamento.ORM
+		SccProjectUniqueName3 = Ensalamento.Web.UI\\Ensalamento.Web.UI.csproj
+		SccProjectTopLevelParentUniqueName3 = GRUPO07.sln
+		SccProjectName3 = Ensalamento.Web.UI
+		SccLocalPath3 = Ensalamento.Web.UI
+		SccProjectUniqueName4 = Ensalamento.BO\\Ensalamento.BO.csproj
+		SccProjectTopLevelParentUniqueName4 = GRUPO07.sln
+		SccProjectName4 = Ensalamento.BO
+		SccLocalPath4 = Ensalamento.BO
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9A2E75F-D45B-4A66-9F32-51A586D6DA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A2E75F-D45B-4A66-9F32-51A586D6DA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A2E75F-D45B-4A66-9F32-51A586D6DA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A2E75F-D45B-4A66-9F32-51A586D6DA83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9A2E75F-D45B-4A66-9F32-51A586D6DA83} = {CBD8E797-A672-4421-9A96-FFB789EBDEE2}
+		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142} = {0ECB674C-129E-4C02-933F-3EA08109465E}
+		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8} = {666084C0-52CD-444B-A6EC-84D27D5377C5}
+		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED} = {92935848-99FB-4AD4-841D-F73F8EF363B5}
+	EndGlobalSection
+EndGlobal

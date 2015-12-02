@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema Reserva Fácil</title>
+    <link href="~/Content/estilo.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"><img src="~/img/logoprojeto.png" alt="logo" role="banner"></a>
+            </div>  
+
+            <nav id="navigation-menu" class="collapse navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-righ">
+                    <li class="selected-nav">@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Salas", "Index", "Salas")</li>
+                    <li>@Html.ActionLink("Laboratório", "Index", "Laboratorios")</li>
+                    <li>@Html.ActionLink("Auditório", "Index", "Auditorios")</li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Gerenciamento <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Reservas", "Index", "Reservas")</li>
+                            <li>@Html.ActionLink("Nova Reserva", "Create", "Reservas")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Usuários", "Index", "Pessoas")</li>
+                            <li>@Html.ActionLink("Novo Usuário", "Create", "Pessoas")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                            <li>@Html.ActionLink("Nova Categoria", "Create", "Categorias")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Blocos", "Index", "Blocos")</li>
+                            <li>@Html.ActionLink("Novo Bloco", "Create", "Blocos")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Nova Sala", "Create", "Salas")</li>
+                            <li>@Html.ActionLink("Novo Laboratório", "Create", "Laboratorios")</li>
+                            <li>@Html.ActionLink("Novo Auditorio", "Create", "Auditorios")</li>
+                            
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Sobre</button></li>
+                </ul>
+            </nav>  
+        </div>  
+    </div>  
+
+    @Html.Partial("SobrePartial")
+
+    <div class="content-wrapper">
+        <hr />
+        
+        @RenderBody()
+        <hr />
+
+        <footer id="footer">
+            
+                                <center> <img src="~/img/logoprojeto.png"></center>
+                          
+        </footer>
+
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

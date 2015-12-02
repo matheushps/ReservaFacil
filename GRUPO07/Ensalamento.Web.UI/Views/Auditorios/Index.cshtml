@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Ensalamento.Dominio.Auditorio>
+
+@{
+    ViewBag.Title = "Auditórios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="intro2" class="intro-parallax2">
+    <div class="container">
+        <div class="panel panel-primary">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bloco.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Capacidade)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataCadastro)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bloco.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Capacidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCadastro)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.AuditorioId }) |
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.AuditorioId }) |
+                            @Html.ActionLink("Apagar", "Delete", new { id = item.AuditorioId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+</section>
