@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ensalamento.Dominio;
 using Ensalamento.ORM;
+using Ensalamento.BO;
 
 namespace Ensalamento.Web.UI.Controllers
 {
@@ -31,7 +32,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bloco bloco = db.Blocos.Find(id);
+            var blocoBo = new BlocoBo();
+            var bloco = blocoBo.Mostrar(id.Value);
+
             if (bloco == null)
             {
                 return HttpNotFound();
@@ -56,9 +59,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                bloco.DataCadastro = DateTime.Now.ToLocalTime();
-                db.Blocos.Add(bloco);
-                db.SaveChanges();
+                var blocoBo = new BlocoBo();
+                blocoBo.Adicionar(bloco);
                 return RedirectToAction("Index");
             }
 
@@ -158,8 +160,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bloco).State = EntityState.Modified;
-                db.SaveChanges();
+                var blocoBo = new BlocoBo();
+                blocoBo.Editar(bloco);
                 return RedirectToAction("Index");
             }
             return View(bloco);
@@ -187,9 +189,9 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Bloco bloco = db.Blocos.Find(id);
-            db.Blocos.Remove(bloco);
-            db.SaveChanges();
+           
+            var blocoBo = new BlocoBo();
+            blocoBo.Apagar(id);
             return RedirectToAction("Index");
         }
 

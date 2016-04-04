@@ -10,6 +10,7 @@ using Ensalamento.Dominio;
 using Ensalamento.ORM;
 using Ensalamento.BO;
 
+
 namespace Ensalamento.Web.UI.Controllers
 {
     [RoutePrefix("Laboratorio")]
@@ -53,7 +54,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Laboratorio laboratorio = db.Laboratorios.Find(id);
+            var laboratorioBo = new LaboratorioBo();
+            var laboratorio = laboratorioBo.Mostrar(id.Value);
+
             if (laboratorio == null)
             {
                 return HttpNotFound();
@@ -106,7 +109,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Laboratorio laboratorio = db.Laboratorios.Find(id);
+
             if (laboratorio == null)
             {
                 return HttpNotFound();
@@ -125,9 +130,10 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(laboratorio).State = EntityState.Modified;
-                db.SaveChanges();
+                var laboratorioBo = new LaboratorioBo();
+                laboratorioBo.Editar(laboratorio);
                 return RedirectToAction("Index");
+                
             }
             ViewBag.BlocoId = new SelectList(db.Blocos, "BlocoId", "Nome", laboratorio.BlocoId);
             return View(laboratorio);
@@ -154,10 +160,9 @@ namespace Ensalamento.Web.UI.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            Laboratorio laboratorio = db.Laboratorios.Find(id);
-            db.Laboratorios.Remove(laboratorio);
-            db.SaveChanges();
+        {          
+            var laboratorioBo = new LaboratorioBo();
+            laboratorioBo.Apagar(id);
             return RedirectToAction("Index");
         }
 

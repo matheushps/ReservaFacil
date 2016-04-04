@@ -25,6 +25,7 @@ namespace Ensalamento.Web.UI
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/estilo.css",
                       "~/Content/site.css"));
         }
     }

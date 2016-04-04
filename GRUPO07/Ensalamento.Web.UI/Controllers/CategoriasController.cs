@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ensalamento.Dominio;
 using Ensalamento.ORM;
+using Ensalamento.BO;
 
 namespace Ensalamento.Web.UI.Controllers
 {
@@ -31,7 +32,10 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
+
+            var categoriaBo = new CategoriaBo();
+            var categoria = categoriaBo.Mostrar(id.Value);
+
             if (categoria == null)
             {
                 return HttpNotFound();
@@ -56,9 +60,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoria.DataCadastro = DateTime.Now.ToLocalTime();
-                db.Categorias.Add(categoria);
-                db.SaveChanges();
+                var categoriaBo = new CategoriaBo();
+                categoriaBo.Adicionar(categoria);
                 return RedirectToAction("Index");
             }
 
@@ -163,8 +166,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoria).State = EntityState.Modified;
-                db.SaveChanges();
+                var categoriaBo = new CategoriaBo();
+                categoriaBo.Editar(categoria);
                 return RedirectToAction("Index");
             }
             return View(categoria);
@@ -192,9 +195,8 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categoria categoria = db.Categorias.Find(id);
-            db.Categorias.Remove(categoria);
-            db.SaveChanges();
+            var categoriaBo = new CategoriaBo();
+            categoriaBo.Apagar(id);
             return RedirectToAction("Index");
         }
 

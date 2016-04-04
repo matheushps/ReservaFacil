@@ -9,6 +9,7 @@ namespace Ensalamento.Dominio
         public int Capacidade { get; set; }
         public bool Status { get; set; }
         public DateTime DataCadastro { get; set; }
+        public string Descricao { get; set; }
         public int BlocoId { get; set; }
         public virtual Bloco Bloco { get; set; }
 

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ensalamento.Dominio;
 using Ensalamento.ORM;
+using Ensalamento.BO;
 
 namespace Ensalamento.Web.UI.Controllers
 {
@@ -32,7 +33,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pessoa pessoa = db.Pessoas.Find(id);
+            var pessoaBo = new PessoaBo();
+            var pessoa = pessoaBo.Mostrar(id.Value);
+
             if (pessoa == null)
             {
                 return HttpNotFound();
@@ -58,10 +61,10 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                pessoa.DataCadastro = DateTime.Now.ToLocalTime();
-                db.Pessoas.Add(pessoa);
-                db.SaveChanges();
+                var pessoaBo = new PessoaBo();
+                pessoaBo.Adicionar(pessoa);
                 return RedirectToAction("Index");
+                          
             }
 
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Nome", pessoa.CategoriaId);
@@ -178,7 +181,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pessoa pessoa = db.Pessoas.Find(id);
+            var pessoaBo = new PessoaBo();
+            Pessoa pessoa = pessoaBo.ObterPorId(id.Value);
+
             if (pessoa == null)
             {
                 return HttpNotFound();
@@ -197,9 +202,10 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pessoa).State = EntityState.Modified;
-                db.SaveChanges();
+                var pessoaBo = new PessoaBo();
+                pessoaBo.Editar(pessoa);
                 return RedirectToAction("Index");
+               
             }
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Nome", pessoa.CategoriaId);
             return View(pessoa);
@@ -212,8 +218,11 @@ namespace Ensalamento.Web.UI.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Pessoa pessoa = db.Pessoas.Find(id);
+            } 
+
+            var pessoaBo = new PessoaBo();
+            Pessoa pessoa = pessoaBo.ObterPorId(id.Value);
+
             if (pessoa == null)
             {
                 return HttpNotFound();
@@ -227,10 +236,11 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pessoa pessoa = db.Pessoas.Find(id);
-            db.Pessoas.Remove(pessoa);
-            db.SaveChanges();
+            var pessoaBo = new PessoaBo();
+            pessoaBo.Deletar(id);
+
             return RedirectToAction("Index");
+                        
         }
 
         protected override void Dispose(bool disposing)

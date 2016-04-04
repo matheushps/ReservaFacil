@@ -19,9 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ORM", "ORM", "{0ECB674C-129
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{666084C0-52CD-444B-A6EC-84D27D5377C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste", "Teste", "{A3AB459C-0A8C-4B0A-9E06-EF9135D8FC10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensalamento.Test", "Ensalamento.Test\Ensalamento.Test.csproj", "{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://trainee2015grupo07.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -41,6 +45,10 @@ Global
 		SccProjectTopLevelParentUniqueName4 = GRUPO07.sln
 		SccProjectName4 = Ensalamento.BO
 		SccLocalPath4 = Ensalamento.BO
+		SccProjectUniqueName5 = Ensalamento.Test\\Ensalamento.Test.csproj
+		SccProjectTopLevelParentUniqueName5 = GRUPO07.sln
+		SccProjectName5 = Ensalamento.Test
+		SccLocalPath5 = Ensalamento.Test
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +71,10 @@ Global
 		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +84,6 @@ Global
 		{F45ADAA1-E7EE-4BA2-AB27-D01D698AC142} = {0ECB674C-129E-4C02-933F-3EA08109465E}
 		{173A4E19-ADBF-4B08-89CA-9B2CF6B848E8} = {666084C0-52CD-444B-A6EC-84D27D5377C5}
 		{CDFC7AC8-6C20-45EB-9290-F5F8DC06E6ED} = {92935848-99FB-4AD4-841D-F73F8EF363B5}
+		{A8B6A744-A1A8-4BB7-8D34-4BBCED9EBFE7} = {A3AB459C-0A8C-4B0A-9E06-EF9135D8FC10}
 	EndGlobalSection
 EndGlobal

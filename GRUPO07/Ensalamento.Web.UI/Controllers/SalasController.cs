@@ -54,7 +54,8 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sala sala = db.Salas.Find(id);
+            var salaBo = new SalaBo();
+            var sala = salaBo.Mostrar(id.Value);
             if (sala == null)
             {
                 return HttpNotFound();
@@ -125,9 +126,10 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sala).State = EntityState.Modified;
-                db.SaveChanges();
+                var salaBo = new SalaBo();
+                salaBo.Editar(sala);
                 return RedirectToAction("Index");
+                               
             }
             ViewBag.BlocoId = new SelectList(db.Blocos, "BlocoId", "Nome", sala.BlocoId);
             return View(sala);
@@ -141,7 +143,8 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sala sala = db.Salas.Find(id);
+            var salaBo = new SalaBo();
+            Sala sala = salaBo.ObterPorId(id.Value);
             if (sala == null)
             {
                 return HttpNotFound();
@@ -155,9 +158,8 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sala sala = db.Salas.Find(id);
-            db.Salas.Remove(sala);
-            db.SaveChanges();
+            var salaBo = new SalaBo();
+            salaBo.Apagar(id);
             return RedirectToAction("Index");
         }
 

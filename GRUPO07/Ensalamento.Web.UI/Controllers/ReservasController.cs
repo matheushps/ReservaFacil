@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ensalamento.Dominio;
 using Ensalamento.ORM;
+using Ensalamento.BO;
 
 namespace Ensalamento.Web.UI.Controllers
 {
@@ -44,7 +45,9 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reserva reserva = db.Reservas.Find(id);
+            var reservaBo = new ReservaBo();
+            var reserva = reservaBo.Mostrar(id.Value);
+
             if (reserva == null)
             {
                 return HttpNotFound();
@@ -84,9 +87,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                reserva.DataCadastro = DateTime.Now.ToLocalTime();
-                db.Reservas.Add(reserva);
-                db.SaveChanges();
+                var ReservaBo = new ReservaBo();
+                ReservaBo.Adicionar(reserva);
                 return RedirectToAction("Index");
             }
 
@@ -127,8 +129,8 @@ namespace Ensalamento.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reserva).State = EntityState.Modified;
-                db.SaveChanges();
+                var reservaBo = new ReservaBo();
+                reservaBo.Editar(reserva);
                 return RedirectToAction("Index");
             }
             ViewBag.AuditorioId = new SelectList(db.Auditorios, "AuditorioId", "Nome", reserva.AuditorioId);
@@ -160,9 +162,8 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Reserva reserva = db.Reservas.Find(id);
-            db.Reservas.Remove(reserva);
-            db.SaveChanges();
+            var ReservaBo = new ReservaBo();
+            ReservaBo.Apagar(id);
             return RedirectToAction("Index");
         }
 

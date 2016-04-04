@@ -53,7 +53,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuditorioBo.cs" />
+    <Compile Include="BlocoBo.cs" />
+    <Compile Include="CategoriaBo.cs" />
+    <Compile Include="Interfaces\IAuditorioBo.cs" />
+    <Compile Include="Interfaces\IBlocoBo.cs" />
+    <Compile Include="Interfaces\ICategoriaBo.cs" />
+    <Compile Include="Interfaces\ILaboratorioBo.cs" />
+    <Compile Include="Interfaces\IPessoaBo.cs" />
+    <Compile Include="Interfaces\ISalaBo.cs" />
+    <Compile Include="Interfaces\IValidator.cs" />
+    <Compile Include="Interfaces\IReservaBo.cs" />
     <Compile Include="LaboratorioBo.cs" />
+    <Compile Include="PessoaBo.cs" />
+    <Compile Include="ReservaBo.cs" />
     <Compile Include="SalaBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

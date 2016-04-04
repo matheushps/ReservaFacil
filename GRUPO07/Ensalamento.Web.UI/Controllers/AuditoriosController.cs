@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -52,7 +53,10 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auditorio auditorio = db.Auditorios.Find(id);
+
+            var auditorioBo = new AuditorioBo();
+            var auditorio = auditorioBo.Mostrar(id.Value);
+                   
             if (auditorio == null)
             {
                 return HttpNotFound();
@@ -105,7 +109,11 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+
             Auditorio auditorio = db.Auditorios.Find(id);
+
+
             if (auditorio == null)
             {
                 return HttpNotFound();
@@ -120,12 +128,14 @@ namespace Ensalamento.Web.UI.Controllers
         [Route("Editar")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AuditorioId,Nome,Capacidade,Status,DataCadastro,BlocoId")] Auditorio auditorio)
+        public ActionResult Edit ([Bind(Include = "AuditorioId,Nome,Capacidade,Status,DataCadastro,BlocoId")] Auditorio auditorio)
         {
-            if (ModelState.IsValid)
+                                  
+
+           if (ModelState.IsValid)
             {
-                db.Entry(auditorio).State = EntityState.Modified;
-                db.SaveChanges();
+                var auditorioBo = new AuditorioBo();
+                auditorioBo.Editar(auditorio);
                 return RedirectToAction("Index");
             }
             ViewBag.BlocoId = new SelectList(db.Blocos, "BlocoId", "Nome", auditorio.BlocoId);
@@ -140,7 +150,11 @@ namespace Ensalamento.Web.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Auditorio auditorio = db.Auditorios.Find(id);
+
+            var auditorioBo = new AuditorioBo();
+            Auditorio auditorio = auditorioBo.ObterPorId(id.Value);
+            
+            
             if (auditorio == null)
             {
                 return HttpNotFound();
@@ -154,10 +168,12 @@ namespace Ensalamento.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Auditorio auditorio = db.Auditorios.Find(id);
-            db.Auditorios.Remove(auditorio);
-            db.SaveChanges();
+            
+            var audiotorioBo = new AuditorioBo();
+            audiotorioBo.Deletar(id);
+
             return RedirectToAction("Index");
+                       
         }
 
         protected override void Dispose(bool disposing)
